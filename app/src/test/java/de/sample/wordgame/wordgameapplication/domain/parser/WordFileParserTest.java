@@ -25,6 +25,9 @@ import rx.observers.TestSubscriber;
 
 import rx.schedulers.TestScheduler;
 
+/**
+ * Sample test suite, not all cases are covered.
+ */
 @RunWith(MockitoJUnitRunner.class)
 public class WordFileParserTest {
 
