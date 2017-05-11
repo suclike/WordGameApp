@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+        <variable
+                name="stats"
+                type="de.sample.wordgame.wordgameapplication.ui.data.model.result.ResultStats"/>
+    </data>
+    
+    <LinearLayout
+            android:id="@+id/list_item_repo_layout"
+            android:layout_height="48dp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:background="@{stats.color}">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:textStyle="bold"
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_marginRight="16dp"
+                android:textColor="@color/cell_color_green"
+                android:text="@{stats.passed}"
+                tools:text="# of Failures"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textStyle="bold"
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:textColor="@color/cell_red_color"
+                android:text="@{stats.failed}"
+                tools:text="Time spent"/>
+        
+    </LinearLayout>
+</layout>
