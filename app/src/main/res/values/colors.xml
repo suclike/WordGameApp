@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <color name="colorPrimary">#1C2638</color>
+    <color name="colorPrimaryDark">#121824</color>
+    <color name="colorAccent">#F8A53B</color>
+
+    <color name="color_accent_transparent">#66F8A53B</color>
+
+    <!-- Text colors-->
+    <color name="text_color_primary">#4F413D</color>
+    <color name="text_color_secondary">#FFFFFF</color>
+
+    <color name="cell_red_color">#E93250</color>
+    <color name="cell_color_green">#0C8F55</color>
+
+    <color name="recycle_view_default_color">#F5F7F9</color>
+    <color name="recycle_view_empty_color">#D8E2CA</color>
+
+    <color name="cell_green_color">#660C8F55</color>
+    <color name="cell_white_color">#FFFFFF</color>
+
+    <color name="start_button_color">#0C8F55</color>
+
+</resources>
