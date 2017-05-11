@@ -14,6 +14,7 @@ import com.google.gson.reflect.TypeToken;
 import android.content.SharedPreferences;
 
 import android.support.annotation.ColorRes;
+import android.support.annotation.VisibleForTesting;
 
 import de.sample.wordgame.wordgameapplication.R;
 import de.sample.wordgame.wordgameapplication.ui.data.model.result.GameStats;
@@ -46,7 +47,8 @@ public class ResultsPresenter extends BasePresenter<ResultsView> {
         this.sharedPreferences = sharedPreferences;
     }
 
-    private Single<List<GameStats>> getSavedResults() {
+    @VisibleForTesting
+    protected Single<List<GameStats>> getSavedResults() {
         final String jsonList = sharedPreferences.getString(GAME_RESULT_SAVED_LIST, "");
 
         if (jsonList.isEmpty()) {
