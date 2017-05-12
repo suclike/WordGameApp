@@ -3,6 +3,9 @@ package de.sample.wordgame.wordgameapplication.domain.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * POJO to convert from JSON
+ */
 public class Words {
 
     @SerializedName("text_eng")

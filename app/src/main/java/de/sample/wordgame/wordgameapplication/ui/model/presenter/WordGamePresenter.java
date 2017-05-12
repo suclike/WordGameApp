@@ -73,6 +73,10 @@ public class WordGamePresenter extends BasePresenter<WordGame> {
         this.finalResults = getSavedResults();
     }
 
+    /**
+     * @return  {@link rx.Subscription} to get filtered list of
+     *          {@link de.sample.wordgame.wordgameapplication.domain.model.Words}
+     */
     public Subscription getWords() {
         return
             localGSonParser.getFromJson()  //
@@ -132,6 +136,9 @@ public class WordGamePresenter extends BasePresenter<WordGame> {
                                    }));
     }
 
+    /**
+     * @return  {@link rx.Subscription} to check results and start next round if possible
+     */
     public Subscription checkResults() {
         return observeEventOf(RawTestResult.class, new Action1<RawTestResult>() {
                     @Override
@@ -213,10 +220,25 @@ public class WordGamePresenter extends BasePresenter<WordGame> {
         }
     }
 
+    /**
+     * Rx Event Bus implementation to post events for a specified subscriber.
+     *
+     * @param  event  of any type
+     * @param  <E>
+     */
     public <E> void postEventOf(final E event) {
         serializedSubject.onNext(event);
     }
 
+    /**
+     * Rx Event Bus implementation to observe events on a specified subscriber.
+     *
+     * @param   eventClass  posted event class name
+     * @param   onNext      subscriber action
+     * @param   <T>         generic parameter of event type
+     *
+     * @return
+     */
     private <T> Subscription observeEventOf(final Class<T> eventClass, final Action1<T> onNext) {
         return
             serializedSubject.ofType(eventClass)                        //
@@ -225,6 +247,9 @@ public class WordGamePresenter extends BasePresenter<WordGame> {
                              .subscribe(onNext);
     }
 
+    /**
+     * Saving results to {@link android.content.SharedPreferences} within {@link com.google.gson.Gson}.
+     */
     private void saveResults() {
 
         final String passed = String.valueOf(listOfPassedResults.size());
@@ -239,6 +264,11 @@ public class WordGamePresenter extends BasePresenter<WordGame> {
         sharedPreferences.edit().putString(GAME_RESULT_SAVED_LIST, jsonResultsList).apply();
     }
 
+    /**
+     * Reading results from {@link android.content.SharedPreferences} within {@link com.google.gson.Gson}.
+     *
+     * @return  list of {@link de.sample.wordgame.wordgameapplication.ui.data.model.result.GameStats}
+     */
     private List<GameStats> getSavedResults() {
         final String jsonList = sharedPreferences.getString(GAME_RESULT_SAVED_LIST, "");
 

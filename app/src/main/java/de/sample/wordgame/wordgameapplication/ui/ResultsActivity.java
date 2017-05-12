@@ -90,7 +90,7 @@ public class ResultsActivity extends BaseActivity implements ResultsView {
     }
 
     public void startGame(final View v) {
-        Intent intent = new Intent(this, WordGameActivity.class);
+        final Intent intent = new Intent(this, WordGameActivity.class);
         startActivity(intent);
     }
 

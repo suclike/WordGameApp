@@ -1,5 +1,8 @@
 package de.sample.wordgame.wordgameapplication.domain.model;
 
+/**
+ * POJO to map word to translate with correct and wrong translations randomly taken from same list.
+ */
 public class WordsWithTranslations {
 
     public String textToTranslateSpa;

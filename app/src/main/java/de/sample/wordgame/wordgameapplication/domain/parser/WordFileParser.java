@@ -14,6 +14,9 @@ import rx.Single;
 
 import rx.functions.Func1;
 
+/**
+ * Parsing JSON file with GSON.
+ */
 public class WordFileParser implements LocalGSonParser {
 
     private Gson gson;

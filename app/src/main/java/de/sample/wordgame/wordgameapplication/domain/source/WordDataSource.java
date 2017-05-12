@@ -13,6 +13,9 @@ import rx.Single;
 
 import rx.functions.Func0;
 
+/**
+ * Read data from mocked JSON.
+ */
 public class WordDataSource implements LocalFileDataSource {
 
     private Context context;

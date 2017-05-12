@@ -47,6 +47,9 @@ public class ResultsPresenter extends BasePresenter<ResultsView> {
         this.sharedPreferences = sharedPreferences;
     }
 
+    /**
+     * @return  {@link rx.Single} with list of results saved in sharedpreferenses
+     */
     @VisibleForTesting
     protected Single<List<GameStats>> getSavedResults() {
         final String jsonList = sharedPreferences.getString(GAME_RESULT_SAVED_LIST, "");
@@ -58,6 +61,9 @@ public class ResultsPresenter extends BasePresenter<ResultsView> {
         return Single.just(((List<GameStats>) gson.fromJson(jsonList, type)));
     }
 
+    /**
+     * @return  {@link rx.Subscription} to get saved results in a transformed for displaying
+     */
     public Subscription getTransformedGameResults() {
         return getSavedResults().toObservable() //
                                 .flatMap(new Func1<List<GameStats>, Observable<GameStats>>() {

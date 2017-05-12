@@ -203,6 +203,7 @@ public class WordGameActivity extends BaseActivity implements WordGame {
 
         presenter.postEventOf(new RawTestResult(resultState));
 
+        // increment counter to start next round
         currentGameRound++;
     }
 

@@ -28,6 +28,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         setContentView(layoutToInflate());
 
+        // init butterknife
         ButterKnife.bind(this);
     }
 
